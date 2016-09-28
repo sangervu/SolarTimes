@@ -108,29 +108,52 @@ function getUVI() {
 		uvIndexMax = 0;
 	
 	// Set background color based on UVI index
-		if (uvIndex < 11)
-		setBgColorById ("rgb(153,140,255)");
-		if (uvIndex < 10)
-		setBgColorById ("rgb(181,76,255)");
-		if (uvIndex < 9)
-		setBgColorById ("rgb(255,0,153)");
-		if (uvIndex < 8)
-		setBgColorById ("rgb(216,0,29)");
-		if (uvIndex < 7)
-		setBgColorById ("rgb(232,44,14)");
-		if (uvIndex < 6)
-		setBgColorById ("rgb(248,89,0)");
-		if (uvIndex < 5)
-		setBgColorById ("rgb(248,135,0)");
-		if (uvIndex < 4)
-		setBgColorById ("rgb(248,182,0)");
-		if (uvIndex < 3)
-		setBgColorById ("rgb(160,206,0)");
-		if (uvIndex < 2)
-		setBgColorById ("rgb(78,180,0)");
-		if (uvIndex < 1)
-		setBgColorById ("rgb(190,190,190)");
-	
+		if (uvIndex >= 10) {
+			setBgColorById ("rgb(153,140,255)");
+			setFontColorById ("PYSY POIS AURINGOSTA!", "Red");
+			}
+		if (uvIndex < 10 & uvIndex >= 9.0) {
+			setBgColorById ("rgb(181,76,255)");
+			setFontColorById ("PYSY POIS AURINGOSTA!", "Red");
+			}
+		if (uvIndex >= 8.0 & uvIndex < 9.0) {
+			setBgColorById ("rgb(255,0,153)");
+			setFontColorById ("PYSY POIS AURINGOSTA!", "Red");
+			}
+		if (uvIndex >= 7.0 & uvIndex < 8.0) {
+			setBgColorById ("rgb(216,0,29)");
+			setFontColorById ("5 min MAX AURINGOSSA!", "Red");
+			}
+		if (uvIndex >= 6.0 & uvIndex < 7.0) {
+			setBgColorById ("rgb(232,44,14)");
+			setFontColorById ("15 min MAX AURINGOSSA!", "Red");
+			}
+		if (uvIndex >= 5.0 & uvIndex < 6.0) {
+			setBgColorById ("rgb(248,89,0)");
+			setFontColorById ("Varo UV säteilyä!", "Red");
+			}
+		if (uvIndex >= 4.0 & uvIndex < 5.0) {
+			setBgColorById ("rgb(248,135,0)");
+			setFontColorById ("Suuri riski UV säteilystä", "Brown");
+			}
+		if (uvIndex >= 3.0 & uvIndex < 4.0) {
+			setBgColorById ("rgb(248,182,0)");
+			setFontColorById ("Riski UV säteilystä", "Orange");
+			}
+		if (uvIndex >= 2.0 & uvIndex < 3.0) {
+			setBgColorById ("rgb(160,206,0)");
+			setFontColorById ("Pieni riski UV säteilystä", "Gold");
+			}
+		if (uvIndex >= 1.0 & uvIndex < 2.0) {
+			setBgColorById ("rgb(78,180,0)");
+			setFontColorById ("Vähäinen riski UV säteilystä", "Cyan");
+			}
+		if (uvIndex >= 0 & uvIndex < 1.0) {
+			setBgColorById ("rgb(190,190,190)");
+			setFontColorById ("Ei vaaraa UV säteilystä", "blue");
+			}
+		
+			
 	document.getElementById('uvi').value = MathNew.roundDesimal_1(uvIndex);
 	document.getElementById('uvi_max').value = MathNew.roundDesimal_1(uvIndexMax);
 	document.getElementById('sun_power').value = MathNew.roundDesimal_1(SunPower(elevation_rad));
@@ -156,6 +179,20 @@ function setBgColorById(sColor) {
  }
  return 0;  // failure
 }
+
+function setFontColorById(warningText,fColor) {
+	 var elem;
+	 if (document.getElementById) {
+	  if (elem=document.getElementById('uvi_varoitus')) {
+	   if (elem.style) {
+	    elem.style.color=fColor;
+	    elem.innerHTML=warningText;
+	    return 1;  // success
+	   }
+	  }
+	 }
+	 return 0;  // failure
+	}
 	//UVI color code = sColor
 	//0 rgb(190,190,190)
 	//1 rgb(78,180,0)

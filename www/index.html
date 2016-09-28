@@ -23,17 +23,20 @@
     <!-- Start of first page: #one -->
     <br><div data-role="page" id="one">
         <div data-role="header" >
-            <h1>UVI Solar Calculator</h1>
+            <h1>Solar Calculator</h1>
         </div><!-- /header -->
 
         <div data-role="content" >
-            <h2>UVI Calculated at the Spot</h2>
+            <h2>Solar Calculations</h2>
             <p>
             my Latitude: <b id='lat'>lat</b><br>
 			my Longitude: <b id='lon'>lon</b><br>
 			my Location: <b id='loc'>location</b><br>
             </p>
-            <p><button onclick="getUVI()" id='uvi_color' style="background-color:rgb(190,190,190);">get UVI !</button><b id=''> Sitä sun tätä</b></p>
+            <p>
+                <a href="#three" data-role="button">Solar Power at my location</a>
+            </p>
+            <p><button onclick="getUVI()" id='uvi_color' style="background-color:rgb(190,190,190);">UVI at my location</button><b id='uvi_varoitus'> Onko UV vaarallista?</b></p>
             <table> 
 			<tr>
 				<td><label>UVI now (estimation):</label></td>
@@ -59,7 +62,37 @@
     </div><!-- /page one -->
 
     <!-- Start of second page: #two -->
-    <!-- /page two -->
+    <div data-role="page" id="three">
+
+        <div data-role="header" data-theme="a">
+            <h1>Solar power</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" data-theme="a">
+            <h2>Solar power</h2>
+            
+            <p><button onclick="getSolar()" id='solar_color' style="background-color:rgb(190,190,190);">solar Power at my location</button><b id='uvi_varoitus'> Onko UV vaarallista?</b></p>
+            <table> 
+			<tr>
+				<td><label>UVI now (estimation):</label></td>
+				<td><input name="UVI" id='uvi' value="" style="width: 80px;" /></td>
+			</tr>
+			<tr>
+				<td><label>UVI max (estimation):</label></td> <td> 
+				<input name="UVI max" id='uvi_max' value="" style="width: 80px; "/></td> 
+			</tr> 
+		</table>
+          
+            <p>
+                <a href="#one" data-direction="reverse" data-role="button"
+                    data-theme="a">Back to page "one"</a>
+            </p>
+        </div><!-- /content -->
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    </div><!-- /page two -->
 
     <!-- Start of third page: #popup -->
       <div data-role="page" id="popup">
@@ -81,6 +114,7 @@
             <div>
 				<img id='kuva' src="">
 			</div>
+			<h2>UV Index chart</h2>
 			<p id='uvi_legend'>
 				<img src="global_uvi_legend.png">
 			</p>

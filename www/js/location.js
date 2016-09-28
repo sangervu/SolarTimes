@@ -146,7 +146,7 @@ function getShortestDistance (){
 	document.getElementById('site').innerHTML = "Sotkamo";
 	document.getElementById('kuva').src = "http://cdn.fmi.fi/legacy-fmi-fi-content/products/global-ultraviolet-index/plot.php?location=sotkamo&lang=fi&day=0";
 	}
-	//Sodankyl� 	
+	//Sodankylä
 	var lat2 = 67.14;
 	var lon2 = 26.90;
 	getDistance(lat2, lon2);
@@ -157,7 +157,7 @@ function getShortestDistance (){
 	document.getElementById('site').innerHTML = "Sodankyl&#228;";
 	document.getElementById('kuva').src = "http://cdn.fmi.fi/legacy-fmi-fi-content/products/global-ultraviolet-index/plot.php?location=sodankyl&lang=fi&day=0";
 	}
-	//Ut�
+	//Utö
 	var lat2 = 59.78;
 	var lon2 = 21.37;
 	getDistance(lat2, lon2);
