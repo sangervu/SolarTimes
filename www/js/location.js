@@ -88,7 +88,12 @@ var MathNew = {
 	distances[distances.length] = Math.round(distance);
 	getShortestDistance();
 	
-	
+	//Italia Monte Rosa
+	var lat2 = 45.9;	
+	var lon2 = 7.86;
+	getDistance(lat2, lon2);
+	distances[distances.length] = Math.round(distance);
+	getShortestDistance();
 
 function getDistance(lat2,lon2){
 	var R = 6371; // km	
@@ -189,5 +194,16 @@ function getShortestDistance (){
 	document.getElementById('lon2').innerHTML = lon2;
 	document.getElementById('site').innerHTML = "Funchal";
 	document.getElementById('kuva').src = "http://cdn.fmi.fi/legacy-fmi-fi-content/products/global-ultraviolet-index/plot.php?location=funchal&lang=fi&day=0";
+	}
+	//Monte Rosa
+	var lat2 = 45.9;	
+	var lon2 = 7.86;
+	getDistance(lat2, lon2);
+	distance = Math.round(distance);
+	if (distance == distances[0]){
+	document.getElementById('lat2').innerHTML = lat2;
+	document.getElementById('lon2').innerHTML = lon2;
+	document.getElementById('site').innerHTML = "Monte Rosa";
+	document.getElementById('kuva').src = "http://cdn.fmi.fi/legacy-fmi-fi-content/products/global-ultraviolet-index/plot.php?location=monte-rosa&lang=fi&day=0";
 	}
 }
